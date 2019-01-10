@@ -1,4 +1,4 @@
-//shripad alvi
+//shripad alvi//
 #include<stdio.h>
 #include<math.h>
 void decimal_binary(int);

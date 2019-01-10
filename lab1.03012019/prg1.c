@@ -1,35 +1,51 @@
+
 #include<stdio.h>
-int decimal(int);
-int binary(int);
-int main()
+#include<math.h>
+void decimal_binary(int);
+void binary_decimal(int);
+void main()
 {
-int num;
-
-printf("\n enter the number in decimal \t");
-scanf("%d",&num);
-
-decimal(num);
-binary(num)
-
+    int number, choice;
+    do
+    {
+        printf("\n\nChoose one of the follwing conversions: ");
+        printf("\n1. Decimal to Binary");
+        printf("\n2. Binary to Decimal");
+        printf("\n3. Exit");
+        printf("\n\nEnter your choice(1-3): ");
+        scanf("%d", &choice);
+        switch(choice)
+        {
+            case 1: printf("\nEnter a decimal number: ");
+                    scanf("%d", &number);
+                    decimal_binary(number);
+                    break;
+            case 2: printf("\nEnter a binary number: ");
+                    scanf("%d", &number);
+                    binary_decimal(number);
+                    break;
+            case 3: exit(0);
+            default: printf("\nINVALID ENTRY!!!");
+        }
+    }while(choice);
 }
-int decimal(int num)
+void decimal_binary(int num)
 {
-int rem,base=1,newnum=0;
-while(num>0)
-      {
-        rem=num%2;
-
-        newnum=newnum+rem*base;
-        num=num/2;
-        base=base*10;
-
-      }
-      printf("\n the num after converting is %d",newnum);
-
-
+    int a[20], i, j;
+    for(i=0; num>0; i++, num=num/2)
+        a[i]=num%2;
+    printf("\n after converting in binary is ");
+    for(j=i-1; j>=0; j--)
+        printf("%d ", a[j]);
 }
-int binary(int num)
+void binary_decimal(int num)
 {
-
-
+    int no=0, i=0;
+    while(num)
+    {
+        no+=(num%10)*pow(2, i);
+        num=num/10;
+        i++;
+    }
+    printf("\nafter converting in decimal  is %d", no);
 }

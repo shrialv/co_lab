@@ -1,4 +1,4 @@
-
+//shripad sitaram alvi
 #include<stdio.h>
 #include<math.h>
 void decimal_binary(int);
